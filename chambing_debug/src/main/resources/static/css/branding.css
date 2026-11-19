@@ -1,0 +1,48 @@
+/* Identidad de Chambing: conservar colores y proporciones de los originales. */
+.navbar-brand.chambing-brand { padding: 0; }
+.navbar-brand.chambing-brand img {
+  display: block;
+  width: 280px;
+  height: auto;
+  aspect-ratio: 4 / 1;
+  margin: 0;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.logo-section .login-logo.chambing-logo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  max-width: 100%;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  filter: none;
+  border-radius: 16px;
+}
+#sidebar-container .logo .chambing-sidebar-brand {
+  display: block;
+  width: 100%;
+  margin: 0;
+  background: none;
+  -webkit-text-fill-color: initial;
+  line-height: 0;
+}
+#sidebar-container .chambing-sidebar-brand picture { display: block; }
+#sidebar-container .chambing-sidebar-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 1;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.chambing-brand:focus-visible,
+.chambing-sidebar-brand:focus-visible { outline: 3px solid #b68aff; outline-offset: 4px; }
+@media (max-width: 768px) {
+  #sidebar-container .logo { padding: 12px 8px; }
+  #sidebar-container .chambing-sidebar-brand img { aspect-ratio: 1; }
+}
+@media (max-width: 575.98px) {
+  .navbar-brand.chambing-brand img { width: clamp(160px, 52vw, 230px); height: auto; }
+  .logo-section .login-logo.chambing-logo { width: 130px; height: 130px; }
+}

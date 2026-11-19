@@ -1,0 +1,39 @@
+{
+  "elegido": {
+    "modelo": "logistic_regression",
+    "accuracy": 0.7233,
+    "f1": 0.4813,
+    "roc_auc": 0.7173
+  },
+  "comparacion": [
+    {
+      "modelo": "logistic_regression",
+      "accuracy": 0.7233,
+      "f1": 0.4813,
+      "roc_auc": 0.7173
+    },
+    {
+      "modelo": "random_forest",
+      "accuracy": 0.7167,
+      "f1": 0.4371,
+      "roc_auc": 0.6983
+    }
+  ],
+  "columnas": [
+    "edad",
+    "misma_ciudad",
+    "salario",
+    "cantidad_requisitos",
+    "num_postulantes",
+    "num_postulaciones_previas",
+    "pct_aprobadas",
+    "anios_experiencia",
+    "nivel_educativo",
+    "skills_coincidentes",
+    "categoria"
+  ],
+  "umbral_alta": 0.66,
+  "umbral_media": 0.4,
+  "filas": 3000,
+  "origen": "postulaciones_simuladas.csv"
+}

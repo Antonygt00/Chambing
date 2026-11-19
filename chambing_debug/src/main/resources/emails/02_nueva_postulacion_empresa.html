@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nueva postulación - Chambing</title>
+<style>
+  body{margin:0;padding:0;font-family:'Poppins',Arial,sans-serif;background:#f4f4f7;color:#333}
+  .container{max-width:600px;margin:20px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+  .header{background:linear-gradient(135deg,#4b208c,#6a3ab0);padding:28px 20px;text-align:center;color:#fff}
+  .header h1{margin:0;font-size:26px}
+  .content{padding:32px 28px}
+  .content h2{color:#4b208c;margin-top:0}
+  .btn{display:inline-block;background:#4b208c;color:#fff!important;text-decoration:none;padding:12px 28px;border-radius:30px;font-weight:600;margin:20px 0}
+  .footer{background:#f8f8f8;padding:16px;text-align:center;font-size:12px;color:#777}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>Chambing</h1><p style="margin:4px 0 0;opacity:.9">Panel de empresas</p></div>
+  <div class="content">
+    <h2>Nueva postulación recibida</h2>
+    <p>Hola equipo de <strong>{{nombreEmpresa}}</strong>,</p>
+    <p><strong>{{nombreUsuario}}</strong> se postuló a <strong>{{propuestaTitulo}}</strong>.</p>
+    <p>Revisa el perfil y gestiona la postulación desde tu panel:</p>
+    <div style="text-align:center">
+      <a href="{{urlBase}}/proposals-answer?idPropuesta={{idPropuesta}}&postulacion={{idPostulacion}}&utm_source=email&utm_medium=notification&utm_campaign=nueva_postulacion" class="btn">Ver postulación</a>
+    </div>
+  </div>
+  <div class="footer">Chambing · Cartagena de Indias</div>
+</div>
+</body>
+</html>

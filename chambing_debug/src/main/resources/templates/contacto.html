@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Contacto | Chambing</title>
+
+  <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" href="/css/responsive.css" th:href="@{/css/responsive.css}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+
+<body class="sub_page editorial-page contact-page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand chambing-brand" href="/" aria-label="Chambing, inicio">
+            <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="280" height="70">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/blog"> Blog </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/contacto" aria-current="page">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- final header section -->
+  </div>
+
+
+  <!-- contacto section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container ">
+      <div class="contact-intro">
+        <p class="contact-eyebrow">Contacto</p>
+        <h1>Conversemos sobre lo que necesitas.</h1>
+        <p class="contact-lead">¿Tienes una pregunta sobre Chambing? Cuéntanos tus dudas, ideas o sugerencias para seguir mejorando la experiencia.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form action="">
+            <h2>Escríbenos</h2>
+            <p class="contact-form-intro">Comparte tus datos de contacto y describe tu consulta.</p>
+            <div>
+              <label for="contact-nombre">Nombre completo</label>
+              <input id="contact-nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?" />
+            </div>
+            <div>
+              <label for="contact-correo">Correo electrónico</label>
+              <input id="contact-correo" type="email" autocomplete="email" placeholder="tu@correo.com" />
+            </div>
+            <div>
+              <label for="contact-telefono">Teléfono <span>(opcional)</span></label>
+              <input id="contact-telefono" type="tel" autocomplete="tel" placeholder="Tu número de contacto" />
+            </div>
+            <div>
+              <label for="contact-mensaje">Tu mensaje</label>
+              <textarea id="contact-mensaje" class="message-box" rows="5" placeholder="Cuéntanos en qué podemos ayudarte"></textarea>
+            </div>
+            <div class="d-flex ">
+              <button type="submit">
+                Enviar mensaje
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map-responsive">
+              <img class="contact-image" src="/images/trabajador1.jpg" alt="Una nueva oportunidad profesional" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- fin contacto section -->
+
+
+  <!-- informacion section -->
+
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="info_contact">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="/login">
+              <img src="images/location-white.png" alt="">
+              <span>
+                Explora las oportunidades
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="/about">
+              <img src="images/telephone-white.png" alt="">
+              <span>
+                Conoce más sobre Chambing
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="/blog">
+              <img src="images/envelope-white.png" alt="">
+              <span>
+                Consejos para tu búsqueda
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <div class="info_form">
+            <h2>Da el siguiente paso con Chambing.</h2>
+            <p>Conecta con empresas y encuentra oportunidades para tu crecimiento profesional.</p>
+            <a class="contact-register" href="/register">Crear mi cuenta</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="images/fb.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- fin info section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-9 mx-auto">
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+
+
+
+  <script src="/js/public-navbar.js"></script>
+</body>
+
+</html>

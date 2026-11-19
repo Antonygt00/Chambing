@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Blog | Chambing</title>
+  <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" href="/css/responsive.css" th:href="@{/css/responsive.css}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+
+<body class="sub_page editorial-page blog-page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand chambing-brand" href="/" aria-label="Chambing, inicio">
+            <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="280" height="70">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/blog" aria-current="page">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contacto">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+
+
+  <!-- blog section -->
+
+  <section class="blog_section layout_padding">
+    <div class="container">
+      <div class="blog-intro">
+        <p class="blog-eyebrow">Nuestro blog</p>
+        <h1>Ideas para dar el siguiente paso en tu carrera.</h1>
+        <p class="blog-lead">Consejos para preparar tu búsqueda de empleo, destacar tu talento y avanzar con confianza.</p>
+      </div>
+      <div class="row blog-articles">
+        <div class="col-md-6">
+          <article class="box" aria-labelledby="estrategias-titulo">
+            <div class="img-box">
+              <img src="images/trabajador1.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <span class="tag">Búsqueda de empleo</span>
+              <h2 id="estrategias-titulo">Estrategias efectivas para encontrar empleo</h2>
+              <p class="article-lead">Una búsqueda organizada empieza por reconocer tus fortalezas y saber qué oportunidad quieres encontrar.</p>
+              <p>Actualiza tu hoja de vida y adapta la información a cada oferta. Destaca las habilidades y experiencias relacionadas con el cargo, con ejemplos concretos de lo que has logrado.</p>
+              <p>Reserva tiempo para revisar vacantes, preparar tus postulaciones y practicar las entrevistas. Llevar un registro de las ofertas a las que aplicas te ayudará a dar seguimiento a cada proceso.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="box" aria-labelledby="actitud-titulo">
+            <div class="img-box">
+              <img src="images/blog2.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <span class="tag">Desarrollo profesional</span>
+              <h2 id="actitud-titulo">Mantén una actitud perseverante y positiva</h2>
+              <p class="article-lead">Encontrar empleo puede tomar tiempo. Avanzar a tu ritmo también forma parte del proceso.</p>
+              <p>Aprovecha el tiempo entre postulaciones para fortalecer tus habilidades, ampliar tu red de contactos y trabajar en proyectos que muestren lo que sabes hacer.</p>
+              <p>Si una oportunidad no se concreta, revisa qué puedes mejorar sin perder de vista tus capacidades. Establece metas alcanzables, reconoce tus avances y date espacio para descansar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end blog section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-9 mx-auto">
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <script src="/js/public-navbar.js"></script>
+
+
+</body>
+
+</html>

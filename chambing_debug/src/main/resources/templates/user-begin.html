@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styled.css">
+
+    <title>Usuario</title>
+<link rel="stylesheet" href="/css/seleccion.css">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+
+<body>
+<div class="d-flex" id="content-wrapper">
+
+    <div id="sidebar-container" class="bg-primary">
+        <div class="logo">
+            <a href="/user-dashboard" class="chambing-sidebar-brand" aria-label="Chambing, ir al panel">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/Logo_Chambing.png">
+                    <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="2508" height="627">
+                </picture>
+            </a>
+        </div>
+        <div class="menu"><a href="/proposals-states" class="d-block text-light p-3 border-0">Mis postulaciones</a>
+            <a href="/companies-registers" class="d-block text-light p-3">
+                <i class="icon ion-md-apps mr-2"></i>Empresas
+            </a>
+            <a href="#" class="d-block text-light p-3">
+                <i class="icon ion-md-person mr-2"></i>Perfil
+            </a>
+            <a href="/only-proporsals" class="d-block text-light p-3">
+                <i class="icon ion-md-person mr-2"></i>Propuesta
+            </a>
+        </div>
+    </div>
+
+    <div class="w-100">
+
+        <nav class="navbar navbar-light bg-light border-bottom">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            Configuración
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="content" class="bg-grey w-100">
+
+            <section class="bg-light py-3">
+                <div class="container">
+                    <h1 class="font-weight-bold">Completa tu perfil</h1>
+                    <p id="avisoObligatorio" class="text-muted mb-0">Para ver las vacantes necesitas resumen, años de experiencia, habilidades, al menos una experiencia y una educación.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>Modificar Perfil</b>
+                        </div>
+
+                        <div class="card-body">
+
+                            <form id="formModificacion">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <input type="text" id="inputNombre" class="form-control" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="text" id="inputApellido" class="form-control" placeholder="Apellido">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="number" id="inputEdad" class="form-control" placeholder="Edad">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select id="selectGenero" class="form-control">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="inputCalle" class="form-control" placeholder="Dirección">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <select aria-label="Departamento" id="selectDepartamento" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <select aria-label="Ciudad" id="selectCiudad" class="form-control"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email">
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea id="inputResumen" class="form-control" rows="3" placeholder="Resumen profesional (obligatorio)" required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="url" id="inputFoto" class="form-control" placeholder="URL de la foto de perfil">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <input type="number" id="inputAnios" class="form-control" min="0" placeholder="Años de experiencia" required>
+                                    </div>
+                                    <div class="form-group col-md-3 d-flex align-items-center">
+                                        <label class="mb-0"><input type="checkbox" id="inputDisponible" checked> Disponible para trabajar</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="inputHabilidades" class="form-control" placeholder="Habilidades separadas por coma. Ej: Java, Excel" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="inputExperiencia" class="form-control" rows="2" placeholder="Experiencia: cargo | empresa | año inicio | año fin (una por línea)" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="inputEducacion" class="form-control" rows="2" placeholder="Educación: título | institución | nivel | año (una por línea)" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="inputCertificaciones" class="form-control" rows="2" placeholder="Certificaciones: nombre | entidad | año (una por línea)"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" id="inputPassword" class="form-control" placeholder="Nueva contraseña">
+                                </div>
+
+                                <button class="btn btn-primary">Guardar</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/seleccion.js"></script>
+<script src="/js/notificaciones.js"></script>
+<script src="/js/ubicaciones.js"></script>
+<script src="/js/perfil-ubicacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+# Credenciales y configuración sensible
+credenciales.txt
+**/credenciales.txt
+application.properties
+application-*.properties
+application.yml
+application-*.yml
+*.env
+.env
+.env.*
+secrets/
+*.pem
+*.key
+*.p12
+*.jks
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle (por si acaso)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Test coverage
+coverage/
+*.exec
+*.coverage
+
+# Spring Boot specific
+spring-shell.log

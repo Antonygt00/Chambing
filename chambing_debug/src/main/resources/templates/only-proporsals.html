@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vacantes - CHAMBING</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/styled.css}">
+  <style>
+    /* ── Paginación (igual que panel admin) ── */
+    .pag-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .75rem 0 0;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .pag-info { font-size: .78rem; color: #6b7280; }
+    .pag-btns { display: flex; gap: .3rem; flex-wrap: wrap; }
+    .pag-btn {
+      min-width: 32px;
+      height: 32px;
+      padding: 0 .55rem;
+      border-radius: 7px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      color: #334155;
+      font-size: .78rem;
+      cursor: pointer;
+      transition: all .12s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pag-btn:hover:not(:disabled) { background: #f1f5f9; border-color: #cbd5e1; }
+    .pag-btn.active {
+      background: #0f172a;
+      color: #fff;
+      border-color: #0f172a;
+      font-weight: 600;
+    }
+    .pag-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+    /* ── Buscador (igual que panel admin) ── */
+    .search-input {
+      font-size: .82rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: .38rem .75rem;
+      width: 240px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 3px rgba(14,165,233,.12);
+    }
+
+    .badge-activa   { background:#16a34a; color:#fff; }
+    .badge-cerrada  { background:#dc2626; color:#fff; }
+    .badge-borrador { background:#6b7280; color:#fff; }
+
+    .filtro-bar {
+      background:#fff;
+      padding:14px;
+      border-radius:.5rem;
+      margin-bottom:1rem;
+      box-shadow:0 2px 8px rgba(0,0,0,.05);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* ── Filtro de salario ── */
+    .salario-filtro { display: flex; align-items: center; gap: .4rem; }
+    .salario-label  { font-size: .82rem; font-weight: 600; color: #6b6485; }
+    .salario-sep    { color: #9ca3af; }
+    .salario-input {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fff;
+      padding-left: .6rem;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .salario-input span { font-size: .82rem; color: #6b6485; }
+    .salario-input input {
+      width: 120px;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: .82rem;
+      padding: .38rem .6rem .38rem .3rem;
+    }
+    .salario-input:focus-within {
+      border-color: #4b208c;
+      box-shadow: 0 0 0 3px rgba(75,32,140,.12);
+    }
+    .salario-input.invalid { border-color: #dc2626; }
+
+    @media (max-width: 576px) {
+      .filtro-bar .search-input,
+      .salario-filtro { width: 100%; }
+      .salario-input  { flex: 1; }
+      .salario-input input { width: 100%; }
+    }
+  </style>
+<link rel="stylesheet" href="/css/seleccion.css">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+<body>
+<div class="d-flex" id="content-wrapper">
+
+  <div id="sidebar-container" class="bg-primary">
+    <div class="logo">
+            <a href="/user-dashboard" class="chambing-sidebar-brand" aria-label="Chambing, ir al panel">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/Logo_Chambing.png">
+                    <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="2508" height="627">
+                </picture>
+            </a>
+        </div>
+    <div class="menu">
+      <a href="/companies-registers" class="d-block text-light p-3 border-0">
+        <i class="icon ion-md-apps lead mr-2"></i> Empresas
+      </a>
+      <a href="/only-proporsals" class="d-block text-light p-3 border-0 active">
+        <i class="icon ion-md-stats lead mr-2"></i> Propuestas
+      </a>
+      <a href="/proposals-states" class="d-block text-light p-3 border-0">
+        <i class="icon ion-md-paper lead mr-2"></i> Mis Postulaciones
+      </a>
+      <a href="/user-begin" class="d-block text-light p-3 border-0">
+        <i class="icon ion-md-person lead mr-2"></i> Perfil
+      </a>
+    </div>
+  </div>
+
+  <div class="w-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="container">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+              <img th:src="@{/images/user-1.png}" class="rounded-circle" width="35" height="35">
+              <span id="nombreNav">Configuración</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="/user-begin">Mi perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="/logout">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="content" class="bg-grey w-100">
+      <section class="bg-light py-3">
+        <div class="container">
+          <h1 class="font-weight-bold mb-0">Vacantes Disponibles</h1>
+          <p class="lead text-muted">Explora todas las ofertas laborales disponibles.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+
+          <!-- Barra de búsqueda y filtro de categoría -->
+          <div class="filtro-bar mt-3">
+            <input type="text" id="searchTexto" class="search-input"
+                   placeholder="Buscar por título o descripción…"
+                   oninput="onSearch()">
+            <input type="text" id="searchCategoria" class="search-input"
+                   placeholder="Categoría…"
+                   oninput="onSearch()">
+            <input type="text" id="searchCiudad" class="search-input" placeholder="Ciudad…" oninput="onSearch()">
+            <select id="searchModalidad" class="search-input" onchange="onSearch()">
+              <option value="">Modalidad</option>
+              <option value="PRESENCIAL">Presencial</option>
+              <option value="REMOTO">Remoto</option>
+              <option value="HIBRIDO">Híbrido</option>
+            </select>
+            <select id="searchContrato" class="search-input" onchange="onSearch()">
+              <option value="">Contrato</option>
+              <option value="Indefinido">Indefinido</option>
+              <option value="Fijo">Término fijo</option>
+              <option value="Prestacion de servicios">Prestación de servicios</option>
+            </select>
+            <select id="searchNivel" class="search-input" onchange="onSearch()">
+              <option value="">Experiencia</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi-senior">Semi-senior</option>
+              <option value="Senior">Senior</option>
+            </select>
+            <div class="salario-filtro" role="group" aria-label="Filtrar por salario">
+              <span class="salario-label">Salario</span>
+              <div class="salario-input">
+                <span>$</span>
+                <input type="number" id="salarioMin" min="0" step="100000"
+                       placeholder="Mínimo" aria-label="Salario mínimo" oninput="onSearch()">
+              </div>
+              <span class="salario-sep">–</span>
+              <div class="salario-input">
+                <span>$</span>
+                <input type="number" id="salarioMax" min="0" step="100000"
+                       placeholder="Máximo" aria-label="Salario máximo" oninput="onSearch()">
+              </div>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm" onclick="limpiarFiltros()">Limpiar</button>
+            <small id="salarioError" class="text-danger w-100" style="display:none;">
+              El salario mínimo no puede ser mayor que el máximo.
+            </small>
+          </div>
+
+          <div class="col-lg-12 my-3 px-0">
+            <div class="card rounded-0">
+              <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                <h6 class="font-weight-bold mb-0">Listado de Vacantes</h6>
+                <small id="conteo" class="text-muted"></small>
+              </div>
+              <div class="card-body" id="propuesta-lista">
+                <div class="text-center py-4">
+                  <div class="spinner-border text-primary" role="status"></div>
+                  <p class="mt-2 text-muted">Cargando vacantes...</p>
+                </div>
+              </div>
+              <!-- Paginación dentro del card (igual que admin) -->
+              <div class="card-footer bg-white">
+                <div class="pag-wrap" id="pag-wrap">
+                  <span class="pag-info" id="pag-info"></span>
+                  <div class="pag-btns" id="pag-btns"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script>
+const PAGE_SIZE = 10;
+
+let usuarioActual  = null;
+let paginaItems    = [];
+let paginaActual   = 0;
+let totalPages     = 1;
+let totalElementos = 0;
+let searchTimer    = null;
+
+function escHtml(s) {
+  return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
+}
+
+/* ── Init ── */
+async function init() {
+  try {
+    const res = await fetch('/usuario/me');
+    if (!res.ok) { window.location.href = '/login'; return; }
+    usuarioActual = await res.json();
+    if (!usuarioActual.perfilCompleto) { window.location.href = '/user-begin?completar=1'; return; }
+    document.getElementById('nombreNav').textContent = usuarioActual.nombre || 'Usuario';
+    await cargarPropuestas();
+  } catch(e) { window.location.href = '/login'; }
+}
+
+async function cargarPropuestas() {
+  await consultar('');
+}
+
+function paramsBusqueda() {
+  const q = new URLSearchParams();
+  const texto = document.getElementById('searchTexto').value.trim();
+  const cat = document.getElementById('searchCategoria').value.trim();
+  const ciudad = document.getElementById('searchCiudad').value.trim();
+  const modalidad = document.getElementById('searchModalidad').value;
+  const contrato = document.getElementById('searchContrato').value;
+  const nivel = document.getElementById('searchNivel').value;
+  const min = document.getElementById('salarioMin').value;
+  const max = document.getElementById('salarioMax').value;
+  if (texto) q.set('keyword', texto);
+  if (cat) q.set('categoria', cat);
+  if (ciudad) q.set('ubicacion', ciudad);
+  if (modalidad) q.set('modalidad', modalidad);
+  if (contrato) q.set('tipoContrato', contrato);
+  if (nivel) q.set('nivelExperiencia', nivel);
+  if (min !== '') q.set('salarioMin', min);
+  if (max !== '') q.set('salarioMax', max);
+  q.set('tamano', PAGE_SIZE);
+  q.set('page', paginaActual);
+  return q;
+}
+
+async function consultar(reset) {
+  const contenedor = document.getElementById('propuesta-lista');
+  const minIn = document.getElementById('salarioMin');
+  const maxIn = document.getElementById('salarioMax');
+  const min = minIn.value === '' ? null : Number(minIn.value);
+  const max = maxIn.value === '' ? null : Number(maxIn.value);
+  const rangoInvalido = min !== null && max !== null && min > max;
+  mostrarErrorSalario(rangoInvalido);
+  if (rangoInvalido) return;
+  if (reset) paginaActual = 0;
+  try {
+    const res = await fetch('/usuario/propuestas?' + paramsBusqueda().toString());
+    if (res.status === 403) { window.location.href = '/user-begin?completar=1'; return; }
+    const data = await res.json();
+    paginaItems = data.content || [];
+    totalElementos = data.totalElements || 0;
+    totalPages = Math.max(1, data.totalPages || 1);
+    renderPagina();
+  } catch (e) {
+    contenedor.innerHTML = "<p class='text-danger'>No se pudieron cargar las propuestas.</p>";
+  }
+}
+
+function onSearch() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => consultar(true), 300);
+}
+
+function mostrarErrorSalario(mostrar) {
+  document.getElementById('salarioError').style.display = mostrar ? 'block' : 'none';
+  document.querySelectorAll('.salario-input').forEach(el => el.classList.toggle('invalid', mostrar));
+}
+
+function limpiarFiltros() {
+  document.getElementById('searchTexto').value    = '';
+  document.getElementById('searchCategoria').value = '';
+  document.getElementById('searchCiudad').value = '';
+  document.getElementById('searchModalidad').value = '';
+  document.getElementById('searchContrato').value = '';
+  document.getElementById('searchNivel').value = '';
+  document.getElementById('salarioMin').value     = '';
+  document.getElementById('salarioMax').value     = '';
+  mostrarErrorSalario(false);
+  paginaActual  = 0;
+  consultar(true);
+}
+
+/* ── Render de la página actual ── */
+function renderPagina() {
+  const total      = totalElementos;
+  const pagina     = paginaItems;
+  const inicio     = total === 0 ? 0 : paginaActual * PAGE_SIZE;
+  const fin        = inicio + pagina.length;
+
+  const from = total === 0 ? 0 : inicio + 1;
+  document.getElementById('conteo').textContent   = total + ' vacantes';
+  document.getElementById('pag-info').textContent = `Mostrando ${from}–${fin} de ${total}`;
+
+  const contenedor = document.getElementById('propuesta-lista');
+  if (pagina.length === 0) {
+    contenedor.innerHTML = "<p class='text-muted py-3'>No se encontraron vacantes con ese criterio.</p>";
+  } else {
+    contenedor.innerHTML = pagina.map(p => {
+      const cerrada = (p.estado || '').toLowerCase() === 'cerrada';
+      return `
+        <div class="border-bottom pb-3 mb-3">
+          <div class="d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+              <h5 class="font-weight-bold text-primary mb-1">${escHtml(p.titulo)}
+                ${p.destacada ? '<span class="badge ml-1" style="background:#f59e0b;color:#111">Destacada</span>' : ''}
+              </h5>
+              <p class="text-muted small mb-1">
+                <i class="icon ion-md-business"></i> ${escHtml(p.empresaNombre || 'Empresa Confidencial')}
+                ${p.categoria ? ' &nbsp;|&nbsp; <i class="icon ion-md-pricetag"></i> ' + escHtml(p.categoria) : ''}
+                ${p.modalidad ? ' &nbsp;|&nbsp; ' + escHtml(p.modalidad) : ''}
+                ${p.ciudad ? ' &nbsp;|&nbsp; ' + escHtml(p.ciudad) : ''}
+              </p>
+            </div>
+            <span class="badge badge-${(p.estado||'').toLowerCase()} ml-2">${escHtml(p.estado || 'Activa')}</span>
+          </div>
+          <p class="mb-1 small">${escHtml(p.descripcion || '')}</p>
+          <p class="mb-2"><small><strong>Requisitos:</strong> ${escHtml(p.requisitos || '')}</small></p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="font-weight-bold text-success">$${Number(p.salario||0).toLocaleString('es-CO')}</span>
+            <small class="text-muted" data-pred="${escHtml(p.idPropuesta)}">Calculando probabilidad…</small>
+            <button class="btn btn-sm ${cerrada ? 'btn-secondary' : 'btn-primary'}"
+              style="min-width:110px"
+              ${cerrada ? 'disabled' : `onclick="aplicarOferta('${escHtml(p.idPropuesta)}', this)"`}>
+              ${cerrada ? 'No disponible' : 'Aplicar Ahora'}
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  renderPaginacion(totalPages);
+  document.querySelectorAll('[data-pred]').forEach(cargarProbabilidad);
+}
+
+/* ── Botones de paginación (igual que admin) ── */
+function renderPaginacion(totalPages) {
+  const cur        = paginaActual;
+  const MAX_VISIBLE = 7;
+  const half       = Math.floor(MAX_VISIBLE / 2);
+  let pStart       = Math.max(0, cur - half);
+  let pEnd         = Math.min(totalPages - 1, pStart + MAX_VISIBLE - 1);
+  if (pEnd - pStart < MAX_VISIBLE - 1) pStart = Math.max(0, pEnd - MAX_VISIBLE + 1);
+
+  let btns = '';
+  btns += `<button class="pag-btn" onclick="goPage(${cur - 1})" ${cur === 0 ? 'disabled' : ''}>‹</button>`;
+
+  if (pStart > 0) {
+    btns += `<button class="pag-btn" onclick="goPage(0)">1</button>`;
+    if (pStart > 1) btns += `<button class="pag-btn" disabled>…</button>`;
+  }
+  for (let i = pStart; i <= pEnd; i++) {
+    btns += `<button class="pag-btn ${i === cur ? 'active' : ''}" onclick="goPage(${i})">${i + 1}</button>`;
+  }
+  if (pEnd < totalPages - 1) {
+    if (pEnd < totalPages - 2) btns += `<button class="pag-btn" disabled>…</button>`;
+    btns += `<button class="pag-btn" onclick="goPage(${totalPages - 1})">${totalPages}</button>`;
+  }
+  btns += `<button class="pag-btn" onclick="goPage(${cur + 1})" ${cur >= totalPages - 1 ? 'disabled' : ''}>›</button>`;
+
+  document.getElementById('pag-btns').innerHTML = btns;
+}
+
+function cargarProbabilidad(el) {
+  fetch('/api/postulaciones/prediccion/' + encodeURIComponent(el.dataset.pred))
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) { el.textContent = ''; return; }
+      const pct = Math.round(Number(d.probabilidad || 0) * 100);
+      el.textContent = 'Probabilidad estimada: ' + d.etiqueta + ' (' + pct + '%)';
+    })
+    .catch(() => { el.textContent = ''; });
+}
+
+function goPage(page) {
+  page = Math.max(0, Math.min(page, totalPages - 1));
+  if (page === paginaActual) return;
+  paginaActual = page;
+  consultar(false);
+  document.getElementById('propuesta-lista').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── Aplicar oferta ── */
+async function aplicarOferta(idPropuesta, btn) {
+  if (!usuarioActual) { window.location.href = '/login'; return; }
+  btn.disabled   = true;
+  btn.textContent = 'Aplicando...';
+  try {
+    const res = await fetch(`/usuario/aplicar/${usuarioActual.idUsuario}/${idPropuesta}`, { method: 'POST' });
+    if (res.ok) {
+      const postulacion = await res.json();
+      window.location.href = '/proposals-states?postulacion=' + encodeURIComponent(postulacion.idPostulacion);
+    } else {
+      const msg = await res.text();
+      alert('Error: ' + msg);
+      btn.disabled   = false;
+      btn.textContent = 'Aplicar Ahora';
+    }
+  } catch(e) {
+    alert('Error de conexión.');
+    btn.disabled   = false;
+    btn.textContent = 'Aplicar Ahora';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+<script src="/js/seleccion.js"></script>
+<script src="/js/notificaciones.js"></script>
+</body>
+</html>

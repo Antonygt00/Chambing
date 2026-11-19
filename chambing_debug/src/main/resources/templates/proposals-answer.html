@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styled.css">
+
+    <title>Postulaciones - CHAMBING</title>
+<link rel="stylesheet" href="/css/seleccion.css">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+
+<body>
+<div class="d-flex" id="content-wrapper">
+
+    <div id="sidebar-container" class="bg-primary">
+        <div class="logo">
+            <a href="/company-dashboard" class="chambing-sidebar-brand" aria-label="Chambing, ir al panel">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/Logo_Chambing.png">
+                    <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="2508" height="627">
+                </picture>
+            </a>
+        </div>
+        <div class="menu">
+            <!-- Menú unificado exactamente como en los otros archivos -->
+            <a href="/company-dashboard" class="d-block text-light p-3 border-0 active">
+                <i class="icon ion-md-apps lead mr-2"></i> Mis Propuestas
+            </a>
+            <a href="/company-proposals" class="d-block text-light p-3 border-0">
+                <i class="icon ion-md-add-circle lead mr-2"></i> Nueva Propuesta
+            </a>
+            <a href="/edit-propuesta" class="d-block text-light p-3 border-0">
+                <i class="icon ion-md-create lead mr-2"></i> Editar Propuestas
+            </a>
+            <a href="/company-profile" class="d-block text-light p-3 border-0">
+                <i class="icon ion-md-person lead mr-2"></i> Mi Perfil
+            </a>
+        </div>
+    </div>
+
+    <div class="w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                <img src="images/user-1.png" class="rounded-circle" alt="avatar" width="35" height="35">
+                                <span id="nombreNav">Cargando...</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="/company-profile">Mi perfil</a>
+                                <a class="dropdown-item text-danger" href="/logout">Cerrar sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="content" class="bg-grey w-100">
+            <section class="bg-light py-3">
+                <div class="container">
+                    <h1 class="font-weight-bold mb-0">Postulaciones</h1>
+                    <p class="lead text-muted">Revisa y gestiona las postulaciones a tu propuesta seleccionada</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 my-3">
+                            <div class="card rounded-0">
+                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                    <h6 class="font-weight-bold mb-0">Postulantes</h6>
+                                    <a href="/edit-propuesta" class="btn btn-sm btn-outline-primary">Volver al listado</a>
+                                </div>
+                                <div class="card-body" id="postulaciones-body">
+                                    <p class="text-muted">Cargando postulaciones...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
+<script src="/js/seleccion.js"></script>
+<script src="/js/notificaciones.js"></script>
+<script src="/js/empresa-postulaciones.js"></script>
+</body>
+</html>

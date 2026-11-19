@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styled.css">
+    <title>Publicar Propuesta - CHAMBING</title>
+<link rel="stylesheet" href="/css/seleccion.css">
+  <link rel="icon" type="image/png" href="/images/Logo_Chambing.png">
+  <link rel="stylesheet" href="/css/branding.css">
+</head>
+<body>
+<div class="d-flex" id="content-wrapper">
+
+    <div id="sidebar-container" class="bg-primary">
+        <div class="logo">
+            <a href="/company-dashboard" class="chambing-sidebar-brand" aria-label="Chambing, ir al panel">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/images/Logo_Chambing.png">
+                    <img src="/images/Logo_Chambing_Banner.png" alt="Chambing" width="2508" height="627">
+                </picture>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="/edit-propuesta" class="d-block text-light p-3 border-0"><i class="icon ion-md-apps lead mr-2"></i>Editar Propuestas</a>
+            <a href="/company-proposals" class="d-block text-light p-3 border-0 active"><i class="icon ion-md-add-circle lead mr-2"></i>Nueva Propuesta</a>
+            <a href="/company-profile" class="d-block text-light p-3 border-0"><i class="icon ion-md-business lead mr-2"></i>Mi Perfil</a>
+        </div>
+    </div>
+
+    <div class="w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                <img src="images/user-1.png" class="rounded-circle" alt="avatar" width="35" height="35">
+                                <span id="nombreNav">Cargando...</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="/company-profile">Mi perfil</a>
+                                <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="content" class="bg-grey w-100">
+            <section class="bg-light py-3">
+                <div class="container">
+                    <h1 class="font-weight-bold mb-0">Publicar una Nueva Propuesta</h1>
+                    <p class="lead text-muted">Detalles de la oferta laboral para los candidatos.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 my-3">
+                            <div class="card rounded-0">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="font-weight-bold mb-0">Creación de Propuesta de Trabajo</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form id="form-propuesta">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-8">
+                                                <label>Título de la Propuesta</label>
+                                                <input type="text" class="form-control" id="inputTitulo" placeholder="Ej: Desarrollador Backend Senior" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputSalario">Salario (Mensual)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                                                    <input type="text" inputmode="numeric" autocomplete="off" class="form-control"
+                                                           id="inputSalario" placeholder="Ej: 3.500.000" maxlength="15" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group">
+                                            <label>Descripción del Puesto</label>
+                                            <textarea class="form-control" id="inputDescripcion" rows="4" placeholder="Detalle las responsabilidades diarias..." required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Requisitos Mínimos</label>
+                                            <textarea class="form-control" id="inputRequisitos" rows="3" placeholder="Ej: 3 años de experiencia en Java..." required></textarea>
+                                        </div>
+                                        <hr>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label>Categoría / Área</label>
+                                                <select id="selectCategoria" class="form-control" required>
+                                                    <option value="">Elegir Categoría...</option>
+                                                    <option value="Tecnología y Desarrollo">Tecnología y Desarrollo</option>
+                                                    <option value="Marketing Digital">Marketing Digital</option>
+                                                    <option value="Recursos Humanos">Recursos Humanos</option>
+                                                    <option value="Administración y Finanzas">Administración y Finanzas</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Estado de la Publicación</label>
+                                                <select id="selectEstado" class="form-control" required>
+                                                    <option value="">Elegir Estado...</option>
+                                                    <option value="Activa">Activa (Visible)</option>
+                                                    <option value="Borrador">Borrador (No Visible)</option>
+                                                    <option value="Cerrada">Cerrada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label>Modalidad</label>
+                                                <select id="selectModalidad" class="form-control">
+                                                    <option value="PRESENCIAL">Presencial</option>
+                                                    <option value="REMOTO">Remoto</option>
+                                                    <option value="HIBRIDO">Híbrido</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Tipo de contrato</label>
+                                                <select id="selectContrato" class="form-control">
+                                                    <option value="Indefinido">Indefinido</option>
+                                                    <option value="Fijo">Término fijo</option>
+                                                    <option value="Prestacion de servicios">Prestación de servicios</option>
+                                                    <option value="Aprendizaje">Aprendizaje</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Nivel de experiencia</label>
+                                                <select id="selectNivel" class="form-control">
+                                                    <option value="Junior">Junior</option>
+                                                    <option value="Semi-senior">Semi-senior</option>
+                                                    <option value="Senior">Senior</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label>Ciudad</label>
+                                                <input type="text" class="form-control" id="inputCiudad" value="Cartagena">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Vacantes</label>
+                                                <input type="number" min="1" class="form-control" id="inputVacantes" value="1">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Cierre de la oferta</label>
+                                                <input type="date" class="form-control" id="inputCierre">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Skills requeridas (separadas por coma)</label>
+                                            <input type="text" class="form-control" id="inputSkills" placeholder="Java, Spring, MongoDB">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Beneficios (separados por coma)</label>
+                                            <input type="text" class="form-control" id="inputBeneficios" placeholder="Medicina prepagada, horario flexible">
+                                        </div>
+                                        <div class="form-group border rounded p-3" style="background:#fff8eb">
+                                            <label class="font-weight-bold mb-1">Destacar oferta</label>
+                                            <p class="small text-muted mb-2">Wompi está desactivado. Si eliges un plan, después de publicar aparecen dos botones para simular el pago. Básica 7 días $25.000 · Estándar 15 días $45.000 · Plus 30 días $80.000 COP.</p>
+                                            <select id="selectPlan" class="form-control">
+                                                <option value="">Publicar sin destacar</option>
+                                                <option value="BASICA">Destacada básica — 7 días — $25.000</option>
+                                                <option value="ESTANDAR">Destacada estándar — 15 días — $45.000</option>
+                                                <option value="PLUS">Destacada plus — 30 días — $80.000</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" id="btnPublicar" class="btn btn-success mt-3">
+                                            <i class="icon ion-md-send mr-2"></i>Publicar Propuesta
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script>
+const API_URL = "https://chambing.com.co";
+let empresaActual = null;
+
+// ─── Salario: separador de miles automático (3500000 → 3.500.000) ───────────
+const inputSalario = document.getElementById('inputSalario');
+const soloDigitos  = s => s.replace(/\D/g, '');
+const formatearMiles = digitos => digitos.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+inputSalario.addEventListener('input', () => {
+    // Conserva la posición del cursor contando los dígitos que hay antes de él
+    const cursor        = inputSalario.selectionStart;
+    const digitosAntes  = soloDigitos(inputSalario.value.slice(0, cursor)).length;
+    const digitos       = soloDigitos(inputSalario.value).replace(/^0+(?=\d)/, '');
+    inputSalario.value  = formatearMiles(digitos);
+
+    let pos = 0, vistos = 0;
+    while (pos < inputSalario.value.length && vistos < digitosAntes) {
+        if (/\d/.test(inputSalario.value[pos])) vistos++;
+        pos++;
+    }
+    inputSalario.setSelectionRange(pos, pos);
+});
+
+const leerSalario = () => Number(soloDigitos(inputSalario.value)) || 0;
+
+async function cargarEmpresa() {
+    try {
+        const res = await fetch('/empresa/me');
+        if (!res.ok) throw new Error('No autorizado');
+
+        empresaActual = await res.json();
+        console.log("✅ Empresa cargada correctamente:", empresaActual);
+
+        document.getElementById('nombreNav').textContent = empresaActual.nombreEmpresa || 'Empresa';
+        return true;
+    } catch (e) {
+        console.error(e);
+        alert("Error de sesión. Inicia sesión nuevamente.");
+        window.location.href = '/login';
+        return false;
+    }
+}
+
+document.getElementById('form-propuesta').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('btnPublicar');
+    const textoOriginal = btn.innerHTML;
+
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm mr-2"></span> Publicando...`;
+
+    if (!empresaActual) {
+        const ok = await cargarEmpresa();
+        if (!ok) {
+            btn.disabled = false;
+            btn.innerHTML = textoOriginal;
+            return;
+        }
+    }
+
+    if (!empresaActual.idEmpresa) {
+        alert("Error: No se encontró el ID de la empresa.");
+        btn.disabled = false;
+        btn.innerHTML = textoOriginal;
+        return;
+    }
+
+    const lista = valor => valor.split(',').map(s => s.trim()).filter(Boolean);
+    const nuevaPropuesta = {
+        titulo:      document.getElementById('inputTitulo').value.trim(),
+        salario:     leerSalario(),
+        descripcion: document.getElementById('inputDescripcion').value.trim(),
+        requisitos:  document.getElementById('inputRequisitos').value.trim(),
+        categoria:   document.getElementById('selectCategoria').value,
+        estado:      document.getElementById('selectEstado').value,
+        modalidad:   document.getElementById('selectModalidad').value,
+        tipoContrato: document.getElementById('selectContrato').value,
+        nivelExperiencia: document.getElementById('selectNivel').value,
+        ciudad:      document.getElementById('inputCiudad').value.trim(),
+        numeroVacantes: Number(document.getElementById('inputVacantes').value) || 1,
+        fechaCierre: document.getElementById('inputCierre').value || null,
+        skillsRequeridas: lista(document.getElementById('inputSkills').value),
+        beneficios:  lista(document.getElementById('inputBeneficios').value)
+    };
+    const plan = document.getElementById('selectPlan').value;
+
+    try {
+        const response = await fetch(`${API_URL}/empresa/${empresaActual.idEmpresa}/propuestas`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(nuevaPropuesta)
+        });
+
+        if (response.ok) {
+            const creada = await response.json();
+            if (plan && creada.idPropuesta) {
+                const pagoRes = await fetch(`/empresa/${empresaActual.idEmpresa}/propuestas/${creada.idPropuesta}/destacar`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ plan })
+                });
+                const pago = await pagoRes.json();
+                if (pagoRes.ok && pago.checkoutUrl) {
+                    window.location.href = pago.checkoutUrl;
+                    return;
+                }
+                alert(pago.message || pago.error || 'La oferta se publicó, pero no se pudo iniciar el pago.');
+            }
+            alert("¡Propuesta publicada con éxito!");
+            window.location.href = "/company-dashboard";
+        } else {
+            const errorText = await response.text();
+            alert("Error al publicar: " + errorText);
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Error de conexión con el servidor.");
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = textoOriginal;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', cargarEmpresa);
+</script>
+<script src="/js/seleccion.js"></script>
+<script src="/js/notificaciones.js"></script>
+</body>
+</html>

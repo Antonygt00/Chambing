@@ -1,0 +1,123 @@
+package Chambing.demo.Model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+@Document(collection = "empresas")
+public class Empresa implements UserDetails {
+
+    @Id
+    private String idEmpresa;
+
+
+    @Indexed(unique = true, sparse = true)
+    private Long nit;
+
+    @NotBlank
+    private String nombreEmpresa;
+
+    private Direccion direccion;
+
+    @NotBlank
+    @Email
+    @Indexed(unique = true)
+    private String correo;
+
+    @NotBlank
+    @Size(min = 4)
+    private String contrasena;
+
+    private Set<Rol> roles;
+
+    private boolean enabled = true;
+
+    private String logoUrl;
+    private String descripcion;
+    private String sector;
+    private String tamano;
+    private String sitioWeb;
+    private List<String> beneficios = new ArrayList<>();
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (roles == null || roles.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return roles.stream()
+                .map(rol -> new SimpleGrantedAuthority(rol.name()))
+                .toList();
+    }
+
+    @Override
+    public String getPassword() {
+        return contrasena;
+    }
+
+    @Override
+    public String getUsername() {
+        return correo;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() { return true; }
+
+    @Override
+    public boolean isAccountNonLocked() { return true; }
+
+    @Override
+    public boolean isCredentialsNonExpired() { return true; }
+
+    @Override
+    public boolean isEnabled() { return enabled; }
+
+    public String getIdEmpresa() { return idEmpresa; }
+    public void setIdEmpresa(String idEmpresa) { this.idEmpresa = idEmpresa; }
+
+    public Long getNit() { return nit; }
+    public void setNit(Long nit) { this.nit = nit; }
+
+    public String getNombreEmpresa() { return nombreEmpresa; }
+    public void setNombreEmpresa(String nombreEmpresa) { this.nombreEmpresa = nombreEmpresa; }
+
+    public Direccion getDireccion() { return direccion; }
+    public void setDireccion(Direccion direccion) { this.direccion = direccion; }
+
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
+
+    public String getContrasena() { return contrasena; }
+    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+
+    public Set<Rol> getRoles() { return roles; }
+    public void setRoles(Set<Rol> roles) { this.roles = roles; }
+
+    public boolean getEnabled() { return enabled; }
+    public void setEnabled(boolean enabled) { this.enabled = enabled; }
+
+    public String getLogoUrl() { return logoUrl; }
+    public void setLogoUrl(String logoUrl) { this.logoUrl = logoUrl; }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public String getSector() { return sector; }
+    public void setSector(String sector) { this.sector = sector; }
+    public String getTamano() { return tamano; }
+    public void setTamano(String tamano) { this.tamano = tamano; }
+    public String getSitioWeb() { return sitioWeb; }
+    public void setSitioWeb(String sitioWeb) { this.sitioWeb = sitioWeb; }
+    public List<String> getBeneficios() { return beneficios; }
+    public void setBeneficios(List<String> beneficios) { this.beneficios = beneficios; }
+}

@@ -1,0 +1,220 @@
+{
+  "Amazonas": [
+    "Leticia",
+    "Puerto Nariño"
+  ],
+  "Antioquia": [
+    "Medellín",
+    "Bello",
+    "Itagüí",
+    "Envigado",
+    "Apartadó",
+    "Turbo",
+    "Rionegro",
+    "Caucasia",
+    "Sabaneta",
+    "La Estrella"
+  ],
+  "Arauca": [
+    "Arauca",
+    "Saravena",
+    "Tame",
+    "Fortul",
+    "Puerto Rondón"
+  ],
+  "Atlántico": [
+    "Barranquilla",
+    "Soledad",
+    "Malambo",
+    "Sabanalarga",
+    "Galapa",
+    "Baranoa",
+    "Puerto Colombia"
+  ],
+  "Bolívar": [
+    "Cartagena",
+    "Magangué",
+    "El Carmen de Bolívar",
+    "Mompox",
+    "Turbaco",
+    "Arjona",
+    "San Juan Nepomuceno"
+  ],
+  "Boyacá": [
+    "Tunja",
+    "Duitama",
+    "Sogamoso",
+    "Chiquinquirá",
+    "Paipa",
+    "Puerto Boyacá"
+  ],
+  "Caldas": [
+    "Manizales",
+    "Villamaría",
+    "La Dorada",
+    "Chinchiná",
+    "Riosucio"
+  ],
+  "Caquetá": [
+    "Florencia",
+    "San Vicente del Caguán",
+    "Puerto Rico",
+    "El Paujil"
+  ],
+  "Casanare": [
+    "Yopal",
+    "Aguazul",
+    "Villanueva",
+    "Paz de Ariporo",
+    "Tauramena"
+  ],
+  "Cauca": [
+    "Popayán",
+    "Santander de Quilichao",
+    "Puerto Tejada",
+    "Patía"
+  ],
+  "Cesar": [
+    "Valledupar",
+    "Aguachica",
+    "Bosconia",
+    "La Paz",
+    "Agustín Codazzi"
+  ],
+  "Chocó": [
+    "Quibdó",
+    "Istmina",
+    "Tadó",
+    "Condoto"
+  ],
+  "Córdoba": [
+    "Montería",
+    "Lorica",
+    "Cereté",
+    "Sahagún",
+    "Montelíbano",
+    "Tierralta"
+  ],
+  "Cundinamarca": [
+    "Soacha",
+    "Fusagasugá",
+    "Facatativá",
+    "Zipaquirá",
+    "Chía",
+    "Mosquera",
+    "Madrid",
+    "Funza",
+    "Girardot",
+    "Bogotá"
+  ],
+  "Guainía": [
+    "Inírida"
+  ],
+  "Guaviare": [
+    "San José del Guaviare",
+    "El Retorno",
+    "Calamar"
+  ],
+  "Huila": [
+    "Neiva",
+    "Pitalito",
+    "Garzón",
+    "La Plata",
+    "Campoalegre"
+  ],
+  "La Guajira": [
+    "Riohacha",
+    "Maicao",
+    "Uribia",
+    "Manaure",
+    "San Juan del Cesar"
+  ],
+  "Magdalena": [
+    "Santa Marta",
+    "Ciénaga",
+    "Fundación",
+    "El Banco",
+    "Plato"
+  ],
+  "Meta": [
+    "Villavicencio",
+    "Acacías",
+    "Granada",
+    "San Martín",
+    "Puerto López"
+  ],
+  "Nariño": [
+    "Pasto",
+    "Tumaco",
+    "Ipiales",
+    "La Unión",
+    "Túquerres"
+  ],
+  "Norte de Santander": [
+    "Cúcuta",
+    "Ocaña",
+    "Pamplona",
+    "Villa del Rosario",
+    "Los Patios"
+  ],
+  "Putumayo": [
+    "Mocoa",
+    "Puerto Asís",
+    "Orito",
+    "Valle del Guamuez"
+  ],
+  "Quindío": [
+    "Armenia",
+    "Calarcá",
+    "Montenegro",
+    "Circasia",
+    "La Tebaida"
+  ],
+  "Risaralda": [
+    "Pereira",
+    "Dosquebradas",
+    "Santa Rosa de Cabal",
+    "La Virginia"
+  ],
+  "San Andrés": [
+    "San Andrés",
+    "Providencia"
+  ],
+  "Santander": [
+    "Bucaramanga",
+    "Floridablanca",
+    "Girón",
+    "Piedecuesta",
+    "Barrancabermeja",
+    "Socorro"
+  ],
+  "Sucre": [
+    "Sincelejo",
+    "Corozal",
+    "San Marcos",
+    "Tolú",
+    "Sampués"
+  ],
+  "Tolima": [
+    "Ibagué",
+    "Espinal",
+    "Melgar",
+    "Honda"
+  ],
+  "Valle del Cauca": [
+    "Cali",
+    "Buenaventura",
+    "Palmira",
+    "Tuluá",
+    "Buga",
+    "Cartago",
+    "Yumbo"
+  ],
+  "Vaupés": [
+    "Mitú"
+  ],
+  "Vichada": [
+    "Puerto Carreño",
+    "La Primavera"
+  ]
+}
